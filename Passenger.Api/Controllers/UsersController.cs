@@ -9,7 +9,7 @@ using Passenger.Infrastructure.Services;
 namespace Passenger.Api.Controllers
 {
     [Route("[controller]")]
-    public class UsersController : Controller
+    public class UsersController : Controller // users/...
     {
         private readonly IUserService _userService;
         public UsersController(IUserService userService)
@@ -17,7 +17,7 @@ namespace Passenger.Api.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{email}")]
+        [HttpGet("{email}")] //an argument called email and he's required
         public UserDto Get(string email)
             => _userService.Get(email);
     }

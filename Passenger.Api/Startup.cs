@@ -31,7 +31,7 @@ namespace Passenger.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddScoped<IUserRepository, InMemoryUserRepository>();
+            services.AddScoped<IUserRepository, InMemoryUserRepository>(); //Scoped - create new object per HTTP request
             services.AddScoped<IUserService, UserService>();
             services.AddMvc();
         }
