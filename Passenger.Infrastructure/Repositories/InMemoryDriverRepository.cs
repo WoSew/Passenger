@@ -21,8 +21,7 @@ namespace Passenger.Infrastructure.Repositories
 
         public IEnumerable<Driver> GetAll()
             =>_drivers;
-
-        void IDriverRepository.Remove(Guid userId)
+         void IDriverRepository.Remove(Guid userId)
         {
             var driver = Get(userId);
             _drivers.Remove(driver);

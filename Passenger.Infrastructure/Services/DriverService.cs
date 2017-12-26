@@ -17,7 +17,6 @@ namespace Passenger.Infrastructure.Services
 
             return new DriverDto
             {
-                Id = driver.Id,
                 Vehicle = driver.Vehicle,
                 Routes = driver.Routes,
                 DailyRoute = driver.DailyRoutes

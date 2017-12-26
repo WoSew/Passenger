@@ -11,7 +11,5 @@ namespace Passenger.Core.Repositories
         void Add(Driver driver);
         void Update(Driver driver);
         void Remove(Guid userId);
-       
-
     }
 }
