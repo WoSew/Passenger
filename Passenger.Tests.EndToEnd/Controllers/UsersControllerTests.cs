@@ -32,11 +32,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
         {
             //Act
             var email = "user1@email.com";
-            var response = await _client.GetAsync($"users/{email}");
-            response.EnsureSuccessStatusCode();
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            var user = JsonConvert.DeserializeObject<UserDto>(responseString);
+            var user = await GetUserAsync(email);
 
             //Assert
             user.Email.ShouldBeEquivalentTo(email);
@@ -66,8 +62,19 @@ namespace Passenger.Tests.EndToEnd.Controllers
             var response = await _client.PostAsync("users", payload);
             response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.Created);
             response.Headers.Location.ToString().ShouldBeEquivalentTo($"users/{request.Email}");
+
+            var user = await GetUserAsync(request.Email);
+            user.Email.ShouldBeEquivalentTo(request.Email);
         }
         
+        private async Task<UserDto> GetUserAsync(string email)
+        {
+            var response = await _client.GetAsync($"users/{email}");
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<UserDto>(responseString);
+        }
+
         private static StringContent GetPayload(object data)
         {
             var json = JsonConvert.SerializeObject(data);
