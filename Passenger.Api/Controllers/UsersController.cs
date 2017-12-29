@@ -32,7 +32,7 @@ namespace Passenger.Api.Controllers
             
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]CreateUser request) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
+        public async Task<IActionResult> PostAsync([FromBody]CreateUser request) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
         {
             await _userService.RegisterAsync(request.Email, request.Password, request.Password);
 

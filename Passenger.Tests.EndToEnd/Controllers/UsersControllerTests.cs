@@ -1,10 +1,13 @@
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Newtonsoft.Json;
 using Passenger.Api;
+using Passenger.Infrastructure.Commands.Users;
 using Passenger.Infrastructure.DTO;
 using Xunit;
 
@@ -37,6 +40,39 @@ namespace Passenger.Tests.EndToEnd.Controllers
 
             //Assert
             user.Email.ShouldBeEquivalentTo(email);
+        }
+
+        [Fact]
+        public async Task given_invalid_email_user_should_not_exist()
+        {
+            //Act
+            var email = "user1000@email.com";
+            var response = await _client.GetAsync($"users/{email}");
+            response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async Task given_unique_email_user_should_be_created()
+        {
+            //Act
+            var request = new CreateUser
+            {
+                Email = "new@email.com",
+                Username = "new",
+                Password = "sercer"
+            };
+
+            var payload = GetPayload(request);
+            var response = await _client.PostAsync("users", payload);
+            response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.Created);
+            response.Headers.Location.ToString().ShouldBeEquivalentTo($"users/{request.Email}");
+        }
+        
+        private static StringContent GetPayload(object data)
+        {
+            var json = JsonConvert.SerializeObject(data);
+
+            return new StringContent(json, Encoding.UTF8, "application/json"); //Content-type : "application/json" - by serwer wiedział jakiego typu obiekt mu wysyłamy żeby wiedział jak go zdeserializować
         }
     }
 }
