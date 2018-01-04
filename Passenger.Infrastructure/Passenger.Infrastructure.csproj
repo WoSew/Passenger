@@ -12,8 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.01" />
+    <PackageReference Include="Autofac" Version ="4.6.2" />
     <PackageReference Include="AutoMapper" Version ="6.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.01" />
   </ItemGroup>
 
 </Project>
