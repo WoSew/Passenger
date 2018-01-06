@@ -20,7 +20,7 @@ namespace Passenger.Api
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
-        public IContainer ApplicationContainer { get; private set; } //bedzie trzymal nasze konfikuracje dla konterna IoC
+        public IContainer ApplicationContainer { get; private set; } //bedzie trzymal nasze konfiguracje dla konterna IoC
 
 
         public Startup(IHostingEnvironment env)
