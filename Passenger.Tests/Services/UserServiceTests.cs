@@ -19,7 +19,7 @@ namespace Passenger.Tests.Services
 
             var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
 
-            await userService.RegisterAsync("user@email.com", "user", "secret");
+            await userService.RegisterAsync("user@email.com", "user", "secret", "user");
 
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once);
         }
@@ -34,7 +34,7 @@ namespace Passenger.Tests.Services
 
             await userService.GetAsync("user1@email.com");
 
-            var user = new User("user1@email.com", "user1", "secret", "salt");
+            var user = new User("user1@email.com", "user1", "secret","user", "salt");
 
             userRepositoryMock.Setup( x => x.GetAsync(It.IsAny<string>()))
                               .ReturnsAsync(user);
