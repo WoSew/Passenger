@@ -17,10 +17,8 @@ namespace Passenger.Tests.EndToEnd.Controllers
             //Arrange
             Server = new TestServer(new WebHostBuilder()
                      .UseStartup<Startup>());
-            Client = Server.CreateClient();
-            
+            Client = Server.CreateClient();           
         }
-
         protected static StringContent GetPayload(object data)
         {
             var json = JsonConvert.SerializeObject(data);

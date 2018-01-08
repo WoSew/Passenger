@@ -7,19 +7,23 @@ using Passenger.Infrastructure.Commands;
 using Passenger.Infrastructure.Commands.Users;
 using Passenger.Infrastructure.DTO;
 using Passenger.Infrastructure.Services;
+using Passenger.Infrastructure.Settings;
 
 namespace Passenger.Api.Controllers
 {
        public class UsersController : ApiControllerBase // users/...
        {
         private readonly IUserService _userService;
-        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher) : base(commandDispatcher)
+        private readonly GeneralSettings _settings;
+        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher, GeneralSettings settings) : base(commandDispatcher)
         {
+            _settings = settings;
             _userService = userService;
+            Console.WriteLine(_settings.Name);
         }
 
         [HttpGet("{email}")] //an argument called email and he's required
-        public async Task<IActionResult> GetAsync(string email)
+        public async Task<IActionResult> Get(string email)
         {
             var user =  await _userService.GetAsync(email);
             if(user == null)
@@ -32,7 +36,7 @@ namespace Passenger.Api.Controllers
             
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody]CreateUser command) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
+        public async Task<IActionResult> Post([FromBody]CreateUser command) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
         {
             await CommandDispatcher.DispatchAsync(command);
             

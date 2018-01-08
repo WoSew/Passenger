@@ -8,7 +8,6 @@ namespace Passenger.Api.Controllers
 {
     public class AccountController : ApiControllerBase
     {
-        private readonly IUserService _userService;
         public AccountController(ICommandDispatcher commandDispatcher) 
             : base(commandDispatcher)
         {
@@ -17,7 +16,7 @@ namespace Passenger.Api.Controllers
                
         [HttpPut]
         [Route("password")]
-        public async Task<IActionResult> PutAsync([FromBody]ChangeUserPassword command)
+        public async Task<IActionResult> Put([FromBody]ChangeUserPassword command)
         {
             await CommandDispatcher.DispatchAsync(command);
             

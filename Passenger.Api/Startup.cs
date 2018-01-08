@@ -14,6 +14,7 @@ using Passenger.Infrastructure.Services;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC.Modules;
+using Passenger.Infrastructure.IoC;
 
 namespace Passenger.Api
 {
@@ -21,8 +22,6 @@ namespace Passenger.Api
     {
         public IConfigurationRoot Configuration { get; }
         public IContainer ApplicationContainer { get; private set; } //bedzie trzymal nasze konfiguracje dla konterna IoC
-
-
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -31,28 +30,22 @@ namespace Passenger.Api
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-        }
-
-        
-
+        } 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services) //zwracamy IServiceProvider by moc podmieniec domyslny konterner na nasz wlasny
         {
             // Add framework services.
-            services.AddScoped<IUserRepository, InMemoryUserRepository>(); //Scoped - create new object per HTTP request
-            services.AddScoped<IUserService, UserService>();
-            services.AddSingleton(AutoMapperConfig.Initialize());
+
             services.AddMvc();
 
             //Autofac implementation
             var builder = new ContainerBuilder();
             builder.Populate(services); // przekazujemy kolekcje services by zachować spójność z tym co mieliście wcześniej (inicjalizacja calego MVC itd.)
-            builder.RegisterModule<CommandModule>();
+            builder.RegisterModule(new ContainerModule(Configuration));
             ApplicationContainer = builder.Build();
 
             return new AutofacServiceProvider(ApplicationContainer);
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
         {
