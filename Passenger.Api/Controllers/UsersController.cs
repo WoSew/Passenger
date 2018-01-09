@@ -11,15 +11,13 @@ using Passenger.Infrastructure.Settings;
 
 namespace Passenger.Api.Controllers
 {
-       public class UsersController : ApiControllerBase // users/...
-       {
+        public class UsersController : ApiControllerBase // users/...
+        {
         private readonly IUserService _userService;
-        private readonly GeneralSettings _settings;
+        
         public UsersController(IUserService userService, ICommandDispatcher commandDispatcher, GeneralSettings settings) : base(commandDispatcher)
         {
-            _settings = settings;
-            _userService = userService;
-            Console.WriteLine(_settings.Name);
+            _userService = userService;           
         }
 
         [HttpGet("{email}")] //an argument called email and he's required
@@ -34,7 +32,6 @@ namespace Passenger.Api.Controllers
             return Json(user);
         }
             
-
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreateUser command) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
         {
