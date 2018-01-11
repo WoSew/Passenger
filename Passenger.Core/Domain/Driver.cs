@@ -15,10 +15,10 @@ namespace Passenger.Core.Domain
         protected Driver()
         {
         }
-        public Driver(Guid userId)
+        public Driver(Guid userId, string vehicleBrand, string vehicleName, int vehicleSeats)
         {
             UserId = userId;
-        } 
-        
+            Vehicle.Create(vehicleBrand,vehicleName,vehicleSeats);
+        }
     }
 }

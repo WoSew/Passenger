@@ -9,9 +9,9 @@ namespace Passenger.Infrastructure.Commands.Drivers
 
         public class DriverVehicle
         {
-            public string Brand { get; protected set; }
-            public string Name { get; protected set; }
-            public int Seats { get; protected set; }
+            public string Brand { get; set; }
+            public string Name { get; set; }
+            public int Seats { get; set; }
         }
     }
 }

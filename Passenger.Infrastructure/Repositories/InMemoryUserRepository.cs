@@ -22,6 +22,12 @@ namespace Passenger.Infrastructure.Repositories
         public async Task<User> GetAsync(string email)
             => await Task.FromResult(_users.SingleOrDefault(x => x.Email == email.ToLowerInvariant()));
 
+        public async Task<Guid> GetGuidAsync(string email)
+        {
+            var user = await GetAsync(email);
+            return user.Id;
+        }
+
         public async Task<IEnumerable<User>> GetAllAsync()
             => await Task.FromResult(_users);
 

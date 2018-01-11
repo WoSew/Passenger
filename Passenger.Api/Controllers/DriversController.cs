@@ -1,24 +1,50 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Commands;
 using Passenger.Infrastructure.Commands.Drivers;
+using Passenger.Infrastructure.Services;
 
 namespace Passenger.Api.Controllers
 {
     public class DriversController : ApiControllerBase
     {
-        public DriversController(ICommandDispatcher commandDispatcher) 
+
+        private readonly IDriverService _driverService;
+        private readonly IUserService _userService;
+
+        public DriversController(IDriverService driverService, ICommandDispatcher commandDispatcher) 
             : base(commandDispatcher)
         {
-          
+            _driverService = driverService;
         }
-               
+
+        [HttpGet("{email}")]
+        public async Task<IActionResult> Get(string email)
+        {
+            var user = await _userService.GetAsync(email);
+            if(user == null)
+            {
+                return NotFound(); //404
+            }
+
+            var driver = await _driverService.GetAsync(user.Id);
+            if(driver == null)
+            {
+                return NotFound(); //404
+            }
+
+            return Json(driver);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Put([FromBody]CreateDriver command)
         {
             await CommandDispatcher.DispatchAsync(command);
             
-            return NoContent(); // status code 204 - operacja sie powiodla i nie zwraca nic poza tym
+            return Created($"{command.UserId}", new object()); //HTTP code 201
         }
+
+
     }
 }
