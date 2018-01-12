@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
@@ -47,5 +48,16 @@ namespace Passenger.Infrastructure.Repositories
         {
             await Task.CompletedTask;
         }
-  }
+
+        public async Task<IEnumerable<Guid>> GetAllIdsAsync()
+        {
+            //TODO - GET Guid, dunno how but its important to go ahead..
+            /*GuidAttribute usersAttribute = (GuidAttribute) Attribute.GetCustomAttribute(typeof(InMemoryUserRepository));
+
+            IEnumerable<Guid> usersGuids = new Guid(usersAttribute.Value);  */       
+            await Task.CompletedTask;
+            return null;
+        }
+           
+    }
 }
