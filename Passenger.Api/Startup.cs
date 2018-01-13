@@ -15,6 +15,9 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC.Modules;
 using Passenger.Infrastructure.IoC;
+using Microsoft.IdentityModel.Tokens;
+using Passenger.Infrastructure.Settings;
+using System.Text;
 
 namespace Passenger.Api
 {
@@ -51,6 +54,18 @@ namespace Passenger.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            var jwtSettings = app.ApplicationServices.GetService<JwtSettings>();
+                        app.UseJwtBearerAuthentication(new JwtBearerOptions
+            {
+                AutomaticAuthenticate = true, 
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = jwtSettings.Issuer, //jesli adres aplikacji ktora wygenerowala kod bedzie inny niz ten - blad aplikacji
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key)) //sposob podpisywania klucza
+                }
+            });
 
             app.UseMvc();
 
