@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Commands;
 using Passenger.Infrastructure.Commands.Users;
@@ -20,6 +21,7 @@ namespace Passenger.Api.Controllers
             _userService = userService;           
         }
 
+        [Authorize(Policy = "admin")]
         [HttpGet("{email}")] //an argument called email and he's required
         public async Task<IActionResult> Get(string email)
         {

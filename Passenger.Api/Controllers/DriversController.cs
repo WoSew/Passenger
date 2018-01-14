@@ -13,10 +13,11 @@ namespace Passenger.Api.Controllers
         private readonly IDriverService _driverService;
         private readonly IUserService _userService;
 
-        public DriversController(IDriverService driverService, ICommandDispatcher commandDispatcher) 
+        public DriversController(IDriverService driverService, ICommandDispatcher commandDispatcher, IUserService userService) 
             : base(commandDispatcher)
         {
             _driverService = driverService;
+            _userService = userService;
         }
 
         [HttpGet("{email}")]

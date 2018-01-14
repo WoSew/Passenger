@@ -39,6 +39,7 @@ namespace Passenger.Api
         {
             // Add framework services.
 
+            services.AddAuthorization( x => x.AddPolicy("admin", p=> p.RequireRole("admin")));
             services.AddMvc();
 
             //Autofac implementation
