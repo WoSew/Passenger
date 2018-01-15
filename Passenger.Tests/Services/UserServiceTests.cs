@@ -16,10 +16,11 @@ namespace Passenger.Tests.Services
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
+            var encrypterMock = new Mock<IEncrypter>();
 
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);
 
-            await userService.RegisterAsync("user@email.com", "user", "secret", "user");
+            await userService.RegisterAsync("user@email.com", "user1", "secret", "user");
 
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once);
         }
@@ -29,15 +30,17 @@ namespace Passenger.Tests.Services
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
+            var encrypterMock = new Mock<IEncrypter>();
 
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);
 
             await userService.GetAsync("user1@email.com");
 
-            var user = new User("user1@email.com", "user1", "secret","user", "salt");
+            var user = new User("user1@email.com", "user1", "user", "secret", "salt");
 
             userRepositoryMock.Setup( x => x.GetAsync(It.IsAny<string>()))
                               .ReturnsAsync(user);
+
             userRepositoryMock.Verify( x=> x.GetAsync(It.IsAny<string>()), Times.Once());
         }
 
@@ -46,13 +49,14 @@ namespace Passenger.Tests.Services
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
+            var encrypterMock = new Mock<IEncrypter>();
 
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);
 
-            await userService.GetAsync("userNULL@email.com");
+            await userService.GetAsync("user@email.com");
 
-            userRepositoryMock.Setup( x=> x.GetAsync(It.IsAny<string>()))
-                              .ReturnsAsync( () => null);
+            userRepositoryMock.Setup(x => x.GetAsync("user@email.com"))
+                              .ReturnsAsync(() => null);
                               
             userRepositoryMock.Verify( x=> x.GetAsync(It.IsAny<string>()), Times.Once());
         }

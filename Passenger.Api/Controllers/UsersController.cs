@@ -21,7 +21,6 @@ namespace Passenger.Api.Controllers
             _userService = userService;           
         }
 
-        [Authorize(Policy = "admin")]
         [HttpGet("{email}")] //an argument called email and he's required
         public async Task<IActionResult> Get(string email)
         {

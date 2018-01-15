@@ -8,12 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory = "PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="../Passenger.Api/Passenger.Api.csproj" />
     <ProjectReference Include="../Passenger.Infrastructure/Passenger.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version ="4.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="1.1.1" /> 
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" /> 
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-*" />

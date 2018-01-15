@@ -22,12 +22,12 @@ namespace Passenger.Core.Domain
         {
         }
 
-        public User(string email, string username, string password, string role,  string salt)
+        public User(string email, string username, string role, string password,  string salt)
         {
             Id = Guid.NewGuid();
             SetEmail(email);        //Email = email.ToLowerInvariant(); 
             SetUsername(username);  //Username = username;
-            SetPassword(password);  //Password = password;
+            Password = password;    //SetPassword(password);  
             Role = role;
             Salt = salt;
             CreatedAt = DateTime.UtcNow;
