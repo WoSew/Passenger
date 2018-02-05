@@ -19,7 +19,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
         public async Task given_valid_email_user_should_exist()
         {
             //Act
-            var email = "user1@email.com";
+            var email = "user1@test.com";
             var user = await GetUserAsync(email);
 
             //Assert
@@ -30,7 +30,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
         public async Task given_invalid_email_user_should_not_exist()
         {
             //Act
-            var email = "user1000@email.com";
+            var email = "user1000@test.com";
             var response = await Client.GetAsync($"users/{email}");
             response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.NotFound);
         }

@@ -69,7 +69,14 @@ namespace Passenger.Api
                 }
             });
 
-            app.UseMvc();
+            var generalSettings = app.ApplicationServices.GetService<GeneralSettings>();
+            if(generalSettings.SeedData)
+            {
+                var dataInitializer = app.ApplicationServices.GetService<IDataInitializer>();
+                dataInitializer.SeedAsync();
+            }
+
+            app.UseMvc();         
 
             appLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose()); //w razie zatrzymania aplikacji, wywola metode register i wywola na kontenerze metode dispose by wyczyscic nieuzytki
         }

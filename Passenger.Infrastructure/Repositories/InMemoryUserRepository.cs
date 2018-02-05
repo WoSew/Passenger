@@ -10,12 +10,7 @@ namespace Passenger.Infrastructure.Repositories
 {
   public class InMemoryUserRepository : IUserRepository
   {
-        private static ISet<User> _users = new HashSet<User>
-        {
-            new User("user1@email.com", "user1", "user", "secret", "salt"),
-            new User("user2@email.com", "user2", "user", "secret", "salt"),
-            new User("user3@email.com", "user3", "user", "secret", "salt")
-        };
+        private static ISet<User> _users = new HashSet<User>();
 
         public async Task<User> GetAsync(Guid id)
             => await Task.FromResult(_users.SingleOrDefault(x => x.Id == id)); // await Task.FromResult(...); dopisujemy tylko po to by kompilator nie pokazywal warrningow
@@ -28,7 +23,6 @@ namespace Passenger.Infrastructure.Repositories
             var user = await GetAsync(email);
             return user.Id;
         }
-
         public async Task<IEnumerable<User>> GetAllAsync()
             => await Task.FromResult(_users);
 
@@ -43,12 +37,10 @@ namespace Passenger.Infrastructure.Repositories
             _users.Remove(user);
             await Task.CompletedTask;
         }
-
         public async Task UpdateAsync(User user)
         {
             await Task.CompletedTask;
         }
-
         public async Task<IEnumerable<Guid>> GetAllIdsAsync()
         {
             //TODO - GET Guid, dunno how but its important to go ahead..

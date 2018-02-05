@@ -8,7 +8,7 @@ namespace Passenger.Infrastructure.Services
     {
         Task<UserDto> GetAsync(string email);
         Task<UserDto> GetAsync(Guid userId);
-        Task RegisterAsync(string email, string username, string password, string role);
+        Task RegisterAsync(Guid userId,string email, string username, string password, string role);
         Task LoginAsync(string email, string password);
     }
 }

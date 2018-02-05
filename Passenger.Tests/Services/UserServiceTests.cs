@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using FluentAssertions;
@@ -20,7 +21,7 @@ namespace Passenger.Tests.Services
 
             var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);
 
-            await userService.RegisterAsync("user@email.com", "user1", "secret", "user");
+            await userService.RegisterAsync(Guid.NewGuid() ,"user@email.com", "user1", "secret", "user");
 
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once);
         }
@@ -36,7 +37,7 @@ namespace Passenger.Tests.Services
 
             await userService.GetAsync("user1@email.com");
 
-            var user = new User("user1@email.com", "user1", "user", "secret", "salt");
+            var user = new User(Guid.NewGuid(), "user1@email.com", "user1", "user", "secret", "salt");
 
             userRepositoryMock.Setup( x => x.GetAsync(It.IsAny<string>()))
                               .ReturnsAsync(user);
