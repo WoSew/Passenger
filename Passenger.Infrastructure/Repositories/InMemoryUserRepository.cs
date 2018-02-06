@@ -23,7 +23,7 @@ namespace Passenger.Infrastructure.Repositories
             var user = await GetAsync(email);
             return user.Id;
         }
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User>> BrowseAsync()
             => await Task.FromResult(_users);
 
         public async Task AddAsync(User user)

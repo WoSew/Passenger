@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Passenger.Core.Domain;
@@ -33,6 +34,13 @@ namespace Passenger.Infrastructure.Services
 
             return _mapper.Map<User,UserDto>(user);
         }
+        
+        public async Task<IEnumerable<UserDto>> BrowseAsync()
+        {
+            var users = await _userRepository.BrowseAsync();
+
+            return _mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(users);
+        }
 
         public async Task RegisterAsync(Guid uderId ,string email, string username, string password, string role)
         {
@@ -66,5 +74,5 @@ namespace Passenger.Infrastructure.Services
             throw new Exception("Invalid credentials.");
 
         }
-  }
+    }
 }

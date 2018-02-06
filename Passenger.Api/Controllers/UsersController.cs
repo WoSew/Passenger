@@ -21,6 +21,18 @@ namespace Passenger.Api.Controllers
             _userService = userService;           
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var users = await _userService.BrowseAsync();
+            if(users == null)
+            {
+                return NotFound(); //404
+            }
+            
+            return Json(users);
+        }
+
         [HttpGet("{email}")] //an argument called email and he's required
         public async Task<IActionResult> Get(string email)
         {

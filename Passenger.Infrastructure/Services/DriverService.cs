@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Passenger.Core.Domain;
@@ -26,8 +27,15 @@ namespace Passenger.Infrastructure.Services
 
             return _mapper.Map<Driver, DriverDto>(driver);
         }
-      
-        public async Task CreateAsync(Guid userId, string vehicleBrand, string vehicleName, int vehicleSeats)
+
+        public async Task<IEnumerable<DriverDto>> BrowseAsync()
+        {
+            var drivers = await _driverRepository.BrowseAsync();
+
+            return _mapper.Map<IEnumerable<Driver>, IEnumerable<DriverDto>>(drivers);
+        }
+
+        public async Task CreateAsync(Guid userId)
         {
             var user = await _userRepository.GetAsync(userId);
             if(user == null)
@@ -41,8 +49,19 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"Selected User with id number: '{user.Id}' already is a driver.");
             }
 
-            driver = new Driver(userId, vehicleBrand, vehicleName, vehicleSeats);
-            await _driverRepository.AddAsync(driver);
+                driver = new Driver(user);
+                await _driverRepository.AddAsync(driver);
+        }
+
+        public async Task SetVehicleAsync(Guid userId, string brand, string name, int seats)
+        {
+            var driver = await _driverRepository.GetAsync(userId);
+            if(driver == null)
+            {
+                throw new Exception($"Selected driver with user id: '{userId}' was not found.");
+            }
+            driver.SetVehicle(brand, name, seats); 
+            await _driverRepository.UpdateAsync(driver);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Passenger.Core.Repositories
         Task<User> GetAsync(Guid id); 
         Task<User> GetAsync(string email);
         Task<Guid> GetGuidAsync(string email);
-        Task<IEnumerable<User>> GetAllAsync();
+        Task<IEnumerable<User>> BrowseAsync();
         Task<IEnumerable<Guid>> GetAllIdsAsync();
         Task AddAsync(User user);
         Task UpdateAsync(User user);

@@ -20,22 +20,16 @@ namespace Passenger.Api.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{email}")]
-        public async Task<IActionResult> Get(string email)
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            var user = await _userService.GetAsync(email);
-            if(user == null)
+            var drivers = await _driverService.BrowseAsync();
+            if(drivers == null)
             {
                 return NotFound(); //404
             }
 
-            var driver = await _driverService.GetAsync(user.Id);
-            if(driver == null)
-            {
-                return NotFound(); //404
-            }
-
-            return Json(driver);
+            return Json(drivers);
         }
 
         [HttpPost]
