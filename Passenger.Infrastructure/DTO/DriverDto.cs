@@ -8,6 +8,8 @@ namespace Passenger.Infrastructure.DTO
     {
         public Guid userId { get; set; }
         public string Name { get; set; }
+        public VehicleDto Vehicle { get; set; }
+        public IEnumerable<RouteDto> Routes { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
 }
