@@ -32,7 +32,7 @@ namespace Passenger.Infrastructure.Services
                 tasks.Add(_userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user"));
                 
                 tasks.Add(_driverService.CreateAsync(userId));
-                tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3", 5));
+                tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3"));
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
                 _logger.LogTrace($"Adding user: '{username}'.");

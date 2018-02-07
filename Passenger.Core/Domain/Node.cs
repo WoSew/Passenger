@@ -56,6 +56,10 @@ namespace Passenger.Core.Domain
             Latitude = latitude;
             Update();
         }
+
+        public static Node Create(string address, double longitude, double latitude)
+            => new Node(address, longitude, latitude);
+            
         public void Update()
         {
             UpdateAt = DateTime.UtcNow;
