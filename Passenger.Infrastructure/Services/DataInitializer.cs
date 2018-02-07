@@ -30,12 +30,14 @@ namespace Passenger.Infrastructure.Services
                 var username = $"user{i}";
 
                 tasks.Add(_userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user"));
-                
+
+                _logger.LogTrace($"Adding user: '{username}'.");
+
                 tasks.Add(_driverService.CreateAsync(userId));
                 tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3"));
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
-                _logger.LogTrace($"Adding user: '{username}'.");
+                _logger.LogTrace($"Adding driver for: '{username}'.");
             }
 
             for(var i=1; i<=3; i++)

@@ -18,6 +18,7 @@ using Passenger.Infrastructure.IoC;
 using Microsoft.IdentityModel.Tokens;
 using Passenger.Infrastructure.Settings;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Passenger.Api
 {
@@ -41,7 +42,8 @@ namespace Passenger.Api
 
             services.AddAuthorization( x => x.AddPolicy("admin", p=> p.RequireRole("admin")));
             services.AddMemoryCache();
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions( x => x.SerializerSettings.Formatting = Formatting.Indented); //zmienamy sposob wyswietlania JSON
 
             //Autofac implementation
             var builder = new ContainerBuilder();

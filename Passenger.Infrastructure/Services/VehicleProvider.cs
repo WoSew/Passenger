@@ -58,15 +58,9 @@ namespace Passenger.Infrastructure.Services
             
             if(vehicle == null || !vehicle.Any()) // null || kolekcja pusta
             {
-                Console.WriteLine("Gettings vehicles from database.");
                 vehicle = await GetAllAsync();
                 _cache.Set(CacheKey, vehicle);
             }
-            else
-            {
-                Console.WriteLine("Gettings vehicles from cache.");
-            }
-
             return vehicle;
         }
 

@@ -9,15 +9,11 @@ namespace Passenger.Api.Controllers
 {
     public class DriversController : ApiControllerBase
     {
-
         private readonly IDriverService _driverService;
-        private readonly IUserService _userService;
-
-        public DriversController(IDriverService driverService, ICommandDispatcher commandDispatcher, IUserService userService) 
+        public DriversController(IDriverService driverService, ICommandDispatcher commandDispatcher) 
             : base(commandDispatcher)
         {
             _driverService = driverService;
-            _userService = userService;
         }
 
         [HttpGet]
@@ -28,8 +24,19 @@ namespace Passenger.Api.Controllers
             {
                 return NotFound(); //404
             }
-
             return Json(drivers);
+        }
+
+        [HttpGet]
+        [Route("{userId}")]
+        public async Task<IActionResult> Get(Guid userId)
+        {
+            var driver = await _driverService.GetAsync(userId);
+            if(driver == null)
+            {
+                return NotFound(); //404
+            }
+            return Json(driver);
         }
 
         [HttpPost]
@@ -39,7 +46,5 @@ namespace Passenger.Api.Controllers
             
             return Created($"{command.UserId}", new object()); //HTTP code 201
         }
-
-
     }
 }
