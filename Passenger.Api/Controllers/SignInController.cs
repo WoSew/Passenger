@@ -22,7 +22,7 @@ namespace Passenger.Api.Controllers
         public async Task<IActionResult> Post([FromBody]SignIn command)
         {
             command.TokenId = Guid.NewGuid();
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
 
             var jwt = _memoryCache.GetJwt(command.TokenId);
 

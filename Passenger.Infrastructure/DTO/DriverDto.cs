@@ -10,7 +10,6 @@ namespace Passenger.Infrastructure.DTO
         public string Name { get; set; }
         // public VehicleDto Vehicle { get; set; }
          public Vehicle Vehicle { get; set; }
-        public IEnumerable<Route> Routes { get; set; }
         // public IEnumerable<RouteDto> Routes { get; set; }
         public IEnumerable<DailyRoute> DailyRoutes { get; set; }
         public DateTime UpdatedAt { get; set; }

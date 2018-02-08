@@ -48,9 +48,9 @@ namespace Passenger.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreateUser command) //[FromBody] - atrybut ten jest wmagany do tego by freamwork ASP net core wiedział, że musi przypisywać rządanie HTTP ktore mu wyslemy w postaci obiektu json dokladnie do tych danych
         {
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             
-            return Created($"users/{command.Email}", new object()); // HTTP code 201 + location: user/user10@email.com
+            return Created($"users/{command.Email}", null); // HTTP code 201 + location: user/user10@email.com
         }
             
           

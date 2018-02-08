@@ -42,7 +42,7 @@ namespace Passenger.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Put([FromBody]CreateDriver command)
         {
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             
             return Created($"{command.UserId}", new object()); //HTTP code 201
         }

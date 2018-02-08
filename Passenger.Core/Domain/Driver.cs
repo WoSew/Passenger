@@ -50,5 +50,16 @@ namespace Passenger.Core.Domain
             _routes.Add(Route.Create(name,start, end));
             UpdatedAt = DateTime.UtcNow;
         }
+
+        public void DeleteRoute(string name)
+        {
+            var route = Routes.SingleOrDefault(x=> x.Name == name);
+            if(route == null)
+            {
+                throw new Exception($"Route with name: '{name}' for driver '{Name}' does not exist.");
+            }
+            _routes.Remove(route);
+            UpdatedAt = DateTime.UtcNow;
+        }
     }
 }

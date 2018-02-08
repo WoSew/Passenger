@@ -9,12 +9,14 @@ namespace Passenger.Infrastructure.Services
     {
         private readonly IUserService _userService;
         private readonly IDriverService _driverService;
+        private readonly IDriverRouteService _driverRouteService;
         private readonly ILogger<DataInitializer> _logger;
-
-        public DataInitializer(IUserService userService, IDriverService driverService , ILogger<DataInitializer> logger)
+        
+        public DataInitializer(IUserService userService, IDriverService driverService, IDriverRouteService driverRouteService, ILogger<DataInitializer> logger)
         {
             _userService = userService;
             _driverService = driverService;
+            _driverRouteService = driverRouteService;
             _logger = logger;
         }
 
@@ -32,12 +34,14 @@ namespace Passenger.Infrastructure.Services
                 tasks.Add(_userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user"));
 
                 _logger.LogTrace($"Adding user: '{username}'.");
-
                 tasks.Add(_driverService.CreateAsync(userId));
+                _logger.LogTrace($"Setting Vehicle for: '{username}'.");
                 tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3"));
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
-                _logger.LogTrace($"Adding driver for: '{username}'.");
+                _logger.LogTrace($"Adding route for: '{username}'.");
+                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 123, 456, 120, 450));
+                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 605, 221, 735, 000));
             }
 
             for(var i=1; i<=3; i++)

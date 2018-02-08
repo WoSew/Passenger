@@ -21,7 +21,7 @@ namespace Passenger.Api.Controllers
         [Route("password")]
         public async Task<IActionResult> Put([FromBody]ChangeUserPassword command)
         {
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             
             return NoContent(); // status code 204 - operacja sie powiodla i nie zwraca nic poza tym
         }
