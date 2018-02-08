@@ -56,7 +56,7 @@ namespace Passenger.Infrastructure.Services
         {
             var vehicle = _cache.Get<IEnumerable<VehicleDto>>(CacheKey);
             
-            if(vehicle == null || !vehicle.Any()) // null || kolekcja pusta
+            if(vehicle == null) 
             {
                 vehicle = await GetAllAsync();
                 _cache.Set(CacheKey, vehicle);
@@ -94,7 +94,7 @@ namespace Passenger.Infrastructure.Services
                     Brand = v.Key,
                     Name = x.Name,
                     Seats = x.Seats
-                }))));    
+                })))); 
 
         private class VehicleDetails
         {

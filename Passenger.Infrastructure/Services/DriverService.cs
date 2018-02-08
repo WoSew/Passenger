@@ -32,9 +32,9 @@ namespace Passenger.Infrastructure.Services
 
         public async Task<IEnumerable<DriverDto>> BrowseAsync()
         {
-            var drivers = await _driverRepository.BrowseAsync();
+            var drivers = await _driverRepository.GetAllAsync();
 
-            return _mapper.Map<IEnumerable<Driver>, IEnumerable<DriverDto>>(drivers);
+            return _mapper.Map<IEnumerable<Driver>,IEnumerable<DriverDto>>(drivers);
         }
 
         public async Task CreateAsync(Guid userId)
@@ -45,7 +45,7 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"User with id number: '{userId}' does not exists. You can not create 'Driver'.");
             }
 
-            var driver = await _driverRepository.GetAsync(user.Id);
+            var driver = await _driverRepository.GetAsync(userId);
             if(driver != null)
             {
                 throw new Exception($"Selected User with id number: '{user.Id}' already is a driver.");
@@ -63,7 +63,7 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"Selected driver with user id: '{userId}' was not found.");
             }
             var vehicleDetails = await _vehicleProvider.GetAsync(brand, name);
-            var vehicle = Vehicle.Create(brand, name, vehicleDetails.Seats);
+            var vehicle = Vehicle.Create(vehicleDetails.Brand, vehicleDetails.Name, vehicleDetails.Seats);
             driver.SetVehicle(vehicle);
         }
     }

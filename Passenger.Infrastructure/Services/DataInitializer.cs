@@ -12,7 +12,8 @@ namespace Passenger.Infrastructure.Services
         private readonly IDriverRouteService _driverRouteService;
         private readonly ILogger<DataInitializer> _logger;
         
-        public DataInitializer(IUserService userService, IDriverService driverService, IDriverRouteService driverRouteService, ILogger<DataInitializer> logger)
+        public DataInitializer(IUserService userService, IDriverService driverService,
+            IDriverRouteService driverRouteService, ILogger<DataInitializer> logger)
         {
             _userService = userService;
             _driverService = driverService;

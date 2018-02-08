@@ -8,27 +8,14 @@ using Passenger.Core.Repositories;
 namespace Passenger.Infrastructure.Repositories
 {
     public class InMemoryDriverRepository : IDriverRepository
-    {
-        private readonly IUserRepository _userRepository;
-
-        public InMemoryDriverRepository(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-            //var guidUser1 = _userRepository.GetGuidAsync("user1@email.com");           
-        }
-         
-        private static ISet<Driver> _drivers = new HashSet<Driver>
-        {
-           
-            //new Driver(,"brand","name", 4)
-            
-        };
+    {      
+        private static ISet<Driver> _drivers = new HashSet<Driver>();
 
         public async Task<Driver> GetAsync(Guid userId)
             =>await Task.FromResult(_drivers.Single(x=> x.UserId == userId));
-
-        public async Task<IEnumerable<Driver>> BrowseAsync()
-            =>await Task.FromResult(_drivers);
+        
+        public async Task<IEnumerable<Driver>> GetAllAsync()
+            => await Task.FromResult(_drivers);
             
         public async Task AddAsync(Driver driver)
         {
