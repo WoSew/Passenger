@@ -11,17 +11,18 @@ namespace Passenger.Core.Domain
         public Guid UserId { get; protected set; }
         public string Name { get; protected set; }
         public Vehicle Vehicle { get; protected set; }
-        public IEnumerable<Route> Routes 
-        { 
+        public IEnumerable<Route> Routes
+        {
             get { return _routes; }
-            set { _routes = new HashSet<Route>(value); } 
+            set { _routes = new HashSet<Route>(value); }
         }
         
-        public IEnumerable<DailyRoute> DailyRoutes 
-        { 
+        public IEnumerable<DailyRoute> DailyRoutes
+        {
             get { return _dailyRoutes; }
-            set { _dailyRoutes = new HashSet<DailyRoute>(value);  }
+            set { _dailyRoutes = new HashSet<DailyRoute>(value); }
         }
+        
 
         public DateTime UpdatedAt { get; protected set; }
 

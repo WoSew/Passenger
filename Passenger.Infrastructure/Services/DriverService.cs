@@ -51,8 +51,8 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"Selected User with id number: '{user.Id}' already is a driver.");
             }
 
-                driver = new Driver(user);
-                await _driverRepository.AddAsync(driver);
+            driver = new Driver(user);
+            await _driverRepository.AddAsync(driver);
         }
 
         public async Task SetVehicleAsync(Guid userId, string brand, string name)

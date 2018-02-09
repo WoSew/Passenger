@@ -12,16 +12,16 @@ namespace Passenger.Infrastructure.Repositories
         private static ISet<Driver> _drivers = new HashSet<Driver>();
 
         public async Task<Driver> GetAsync(Guid userId)
-            =>await Task.FromResult(_drivers.Single(x=> x.UserId == userId));
-        
-        public async Task<IEnumerable<Driver>> GetAllAsync()
-            => await Task.FromResult(_drivers);
-            
+            => await Task.FromResult(_drivers.SingleOrDefault(x => x.UserId == userId));
+                
         public async Task AddAsync(Driver driver)
         {
             _drivers.Add(driver);
             await Task.CompletedTask;
         }
+
+        public async Task<IEnumerable<Driver>> GetAllAsync()
+            => await Task.FromResult(_drivers);
 
         public async Task RemoveAsync(Guid userId)
         {

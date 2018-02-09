@@ -32,16 +32,18 @@ namespace Passenger.Infrastructure.Services
                 var userId = Guid.NewGuid();
                 var username = $"user{i}";
 
+                _logger.LogTrace($"Adding user: '{username}'.");
                 tasks.Add(_userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user"));
 
                 _logger.LogTrace($"Adding user: '{username}'.");
                 tasks.Add(_driverService.CreateAsync(userId));
+
                 _logger.LogTrace($"Setting Vehicle for: '{username}'.");
                 tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3"));
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
                 _logger.LogTrace($"Adding route for: '{username}'.");
-                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 123, 456, 120, 450));
+                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 5, 5, 6, 6));
                 tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 605, 221, 735, 000));
             }
 
