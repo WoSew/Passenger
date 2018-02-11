@@ -5,6 +5,7 @@ using AutoMapper;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
+using Passenger.Infrastructure.Extensions;
 
 namespace Passenger.Infrastructure.Services
 {
@@ -27,24 +28,20 @@ namespace Passenger.Infrastructure.Services
         {
             var driver = await _driverRepository.GetAsync(userId);
 
-            return _mapper.Map<Driver,DriverDetailsDto>(driver);
+            return _mapper.Map<DriverDetailsDto>(driver);
         }
 
         public async Task<IEnumerable<DriverDto>> BrowseAsync()
         {
             var drivers = await _driverRepository.GetAllAsync();
 
-            return _mapper.Map<IEnumerable<Driver>,IEnumerable<DriverDto>>(drivers);
+            return _mapper.Map<IEnumerable<DriverDto>>(drivers);
         }
 
         public async Task CreateAsync(Guid userId)
         {
-            var user = await _userRepository.GetAsync(userId);
-            if(user == null)
-            {
-                throw new Exception($"User with id number: '{userId}' does not exists. You can not create 'Driver'.");
-            }
-
+            var user = await _userRepository.GerOrFailAsync(userId);
+  
             var driver = await _driverRepository.GetAsync(userId);
             if(driver != null)
             {
@@ -57,11 +54,8 @@ namespace Passenger.Infrastructure.Services
 
         public async Task SetVehicleAsync(Guid userId, string brand, string name)
         {
-            var driver = await _driverRepository.GetAsync(userId);
-            if(driver == null)
-            {
-                throw new Exception($"Selected driver with user id: '{userId}' was not found.");
-            }
+            var driver = await _driverRepository.GerOrFailAsync(userId);
+          
             var vehicleDetails = await _vehicleProvider.GetAsync(brand, name);
             var vehicle = Vehicle.Create(vehicleDetails.Brand, vehicleDetails.Name, vehicleDetails.Seats);
             driver.SetVehicle(vehicle);
