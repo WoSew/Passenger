@@ -31,7 +31,7 @@ namespace Passenger.Infrastructure.Services
 
             var distance = _rootMenager.CalculateDistance(startLatitude, startLongitude, endLatitude, endLongitude);
 
-            driver.AddRoute(name, startNode, endNode);
+            driver.AddRoute(name, startNode, endNode, distance);
             await _driverRepository.UpdateAsync(driver);
         }
 

@@ -10,7 +10,6 @@ namespace Passenger.Core.Domain
         private ISet<DailyRoute> _dailyRoutes = new HashSet<DailyRoute>();
         public Guid UserId { get; protected set; }
         public string Name { get; protected set; }
-        public double Distance { get; protected set; }
         public Vehicle Vehicle { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
         public IEnumerable<Route> Routes
@@ -53,8 +52,7 @@ namespace Passenger.Core.Domain
             }
 
 
-            _routes.Add(Route.Create(name, start, end));
-            Distance = distance;
+            _routes.Add(Route.Create(name, start, end, distance));
             UpdatedAt = DateTime.UtcNow;
         }
 
