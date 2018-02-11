@@ -38,12 +38,31 @@ namespace Passenger.Api.Controllers
             return Json(driver);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Put([FromBody]CreateDriver command)
         {
             await DispatchAsync(command);
             
             return Created($"{command.UserId}", new object()); //HTTP code 201
+        }
+
+        [Authorize]
+        [HttpPut("me")]
+        public async Task<IActionResult> Put([FromBody]UpdateDriver command)
+        {
+            await DispatchAsync(command);
+            
+            return NoContent();
+        }
+
+        [Authorize]
+        [HttpDelete("me")]
+        public async Task<IActionResult> Put()
+        {
+            await DispatchAsync(new DeleteDriver());
+            
+            return NoContent();
         }
     }
 }
