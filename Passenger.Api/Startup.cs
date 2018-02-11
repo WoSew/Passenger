@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Passenger.Infrastructure.Settings;
 using System.Text;
 using Newtonsoft.Json;
+using Passenger.Api.Framework;
 
 namespace Passenger.Api
 {
@@ -78,6 +79,7 @@ namespace Passenger.Api
                 dataInitializer.SeedAsync();
             }
 
+            app.UserExceptionHandler();
             app.UseMvc();         
 
             appLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose()); //w razie zatrzymania aplikacji, wywola metode register i wywola na kontenerze metode dispose by wyczyscic nieuzytki
