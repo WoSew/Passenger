@@ -9,11 +9,13 @@ namespace Passenger.Infrastructure.Services
     public class DriverRouteService : IDriverRouteService
     {
         private readonly IDriverRepository _driverRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public DriverRouteService(IDriverRepository driverRepository, IMapper mapper)
+        public DriverRouteService(IDriverRepository driverRepository, IUserRepository userRepository, IMapper mapper)
         {
             _driverRepository = driverRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
         public async Task AddAsync(Guid userId, string name, double startLatitude, double startLongitude, double endLatitude, double endLongitude)

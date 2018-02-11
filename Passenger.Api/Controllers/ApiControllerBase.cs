@@ -9,8 +9,9 @@ namespace Passenger.Api.Controllers
     public abstract class ApiControllerBase : Controller
     {
         private readonly ICommandDispatcher _commandDispatcher;
-        
-        protected Guid UserID => User?.Identity?.IsAuthenticated == true ? // bierzemy z JWT
+         
+         // bierzemy z JWT
+        protected Guid UserID => User?.Identity?.IsAuthenticated == true ?
             Guid.Parse(User.Identity.Name) : 
             Guid.Empty;
 

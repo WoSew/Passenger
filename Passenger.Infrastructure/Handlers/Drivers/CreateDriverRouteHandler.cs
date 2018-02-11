@@ -15,7 +15,9 @@ namespace Passenger.Infrastructure.Handlers.Drivers
 
         public async Task HandleAsync(CreateDriverRoute command)
         {
-           await _driverRouteService.AddAsync(command.UserId, command.Name, command.StartLatitude, command.StartLongitude, command.EndLatitude, command.EndLongitude);
+           await _driverRouteService.AddAsync(command.UserId, command.Name,
+            command.StartLatitude, command.StartLongitude, 
+            command.EndLatitude, command.EndLongitude);
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Passenger.Infrastructure.Mappers
                 cfg.CreateMap<Route, RouteDto>();
                 cfg.CreateMap<Vehicle, VehicleDto>();
             })
-            .CreateMapper();
-        
+            .CreateMapper();    
     }
 }

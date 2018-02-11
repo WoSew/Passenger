@@ -23,7 +23,8 @@ namespace Passenger.Core.Domain
         }
         public void SetAddress(string address)
         {
-            if(!AddressRegex.IsMatch(address))
+            //if(!AddressRegex.IsMatch(address)) -does not work dunno WHY?!
+            if(string.IsNullOrWhiteSpace(address))
             {
                 throw new Exception("Address is incorrect.");
             }

@@ -43,8 +43,8 @@ namespace Passenger.Infrastructure.Services
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
                 _logger.LogTrace($"Adding route for: '{username}'.");
-                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 5, 5, 6, 6));
-                tasks.Add(_driverRouteService.AddAsync(userId, $"Route number: '{i}'", 605, 221, 735, 000));
+                tasks.Add(_driverRouteService.AddAsync(userId, "Route", 5, 5, 6, 6));
+                tasks.Add(_driverRouteService.AddAsync(userId, "Route 2", 605, 221, 735, 000));
             }
 
             for(var i=1; i<=3; i++)

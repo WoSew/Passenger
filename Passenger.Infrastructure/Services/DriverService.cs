@@ -27,7 +27,7 @@ namespace Passenger.Infrastructure.Services
         {
             var driver = await _driverRepository.GetAsync(userId);
 
-            return _mapper.Map<Driver, DriverDetailsDto>(driver);
+            return _mapper.Map<Driver,DriverDetailsDto>(driver);
         }
 
         public async Task<IEnumerable<DriverDto>> BrowseAsync()
