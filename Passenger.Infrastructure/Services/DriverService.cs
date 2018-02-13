@@ -5,6 +5,7 @@ using AutoMapper;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
+using Passenger.Infrastructure.Exceptions;
 using Passenger.Infrastructure.Extensions;
 
 namespace Passenger.Infrastructure.Services
@@ -45,7 +46,7 @@ namespace Passenger.Infrastructure.Services
             var driver = await _driverRepository.GetAsync(userId);
             if(driver != null)
             {
-                throw new Exception($"Selected User with id number: '{user.Id}' already is a driver.");
+                throw new ServiceException(Exceptions.ErrorCodes.DriverAlreadyExisty, $"Selected User with id number: '{user.Id}' already is a driver.");
             }
 
             driver = new Driver(user);

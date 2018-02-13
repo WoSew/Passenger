@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Passenger.Infrastructure.Exceptions;
 
 namespace Passenger.Api.Framework
 {
@@ -38,6 +39,12 @@ namespace Passenger.Api.Framework
                     statusCode = HttpStatusCode.Unauthorized; //401
                     break;
 
+                case ServiceException e when exceptionType == typeof(ServiceException):
+                    statusCode = HttpStatusCode.BadRequest;  //400
+                    errorCode = e.Code;
+                    break;
+
+
                 default:
                     statusCode = HttpStatusCode.InternalServerError;
                     break;
@@ -49,8 +56,6 @@ namespace Passenger.Api.Framework
             context.Response.StatusCode = (int)statusCode;
 
             return context.Response.WriteAsync(payload);
-
         }
-
     }
 }

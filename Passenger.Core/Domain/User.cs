@@ -36,7 +36,7 @@ namespace Passenger.Core.Domain
         {
             if(!EmailRegex.IsMatch(email))
             {
-                throw new Exception("The email address is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidEmail, "The email address is incorrect.");
             }
 
             Email = email.ToLowerInvariant();
@@ -47,17 +47,17 @@ namespace Passenger.Core.Domain
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new Exception("Password is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidPassword, "Password is incorrect.");
             }
 
             if(password.Length < 3)
             {
-                throw new Exception("Password is too short. Password length must be greater than 3 characters.");
+                throw new DomainException(ErrorCodes.InvalidPassword, "Password is too short. Password length must be greater than 3 characters.");
             }
 
             if(password.Length > 30)
             {
-                throw new Exception("Password is too logn. Password must be shorter than 30 characters.");
+                throw new DomainException(ErrorCodes.InvalidPassword, "Password is too logn. Password must be shorter than 30 characters.");
             }
             
             if(Password == password)
@@ -72,7 +72,11 @@ namespace Passenger.Core.Domain
         {
             if(!UsernameRegex.IsMatch(username))
             {
-                throw new Exception("Username is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidUsername ,"Username is incorrect.");
+            }
+            if(string.IsNullOrEmpty(username))
+            {
+                throw new DomainException(ErrorCodes.InvalidUsername,"Username can not be empty.");
             }
             Username = username;
             UpDate();
