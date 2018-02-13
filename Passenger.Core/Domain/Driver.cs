@@ -44,11 +44,11 @@ namespace Passenger.Core.Domain
             var route = Routes.SingleOrDefault(x => x.Name == name);
             if(route != null)
             {
-                throw new Exception($"Route with name: '{name}' already exist.");
+                throw new DomainException(ErrorCodes.NameAlreadyExist, $"Route with name: '{name}' already exist.");
             }
             if(distance < 0)
             {
-                throw new Exception($"Route with name: '{name}' cannot have distance less than 0.");
+                throw new DomainException(ErrorCodes.InvalidDistance, $"Route with name: '{name}' cannot have distance less than 0.");
             }
 
 
@@ -61,7 +61,7 @@ namespace Passenger.Core.Domain
             var route = Routes.SingleOrDefault(x=> x.Name == name);
             if(route == null)
             {
-                throw new Exception($"Route with name: '{name}' for driver '{Name}' does not exist.");
+                throw new DomainException(ErrorCodes.RouteNotFound, $"Route with name: '{name}' for driver '{Name}' does not exist.");
             }
             _routes.Remove(route);
             UpdatedAt = DateTime.UtcNow;

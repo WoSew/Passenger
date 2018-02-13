@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
+using Passenger.Infrastructure.Exceptions;
 
 namespace Passenger.Infrastructure.Extensions
 {
@@ -12,7 +13,7 @@ namespace Passenger.Infrastructure.Extensions
             var driver = await repository.GetAsync(userId);
             if(driver == null)
             {
-                throw new Exception($"Selected driver with user id: '{userId}' was not found.");
+                throw new ServiceException(Exceptions.ErrorCodes.DriverNotFound, $"Selected driver with user id: '{userId}' was not found.");
             }
             return driver;
         }
@@ -22,7 +23,7 @@ namespace Passenger.Infrastructure.Extensions
             var user = await repository.GetAsync(userId);
             if(user == null)
             {
-                throw new Exception($"Selected user with id: '{userId}' was not found.");
+                throw new ServiceException(Exceptions.ErrorCodes.UserNotFound, $"Selected user with id: '{userId}' was not found.");
             }
             return user;
         }

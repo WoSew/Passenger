@@ -26,7 +26,7 @@ namespace Passenger.Core.Domain
             //if(!AddressRegex.IsMatch(address)) -does not work dunno WHY?!
             if(string.IsNullOrWhiteSpace(address))
             {
-                throw new Exception("Address is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidAdress, "Address is incorrect.");
             }
             Address = address;
             Update();
@@ -35,7 +35,7 @@ namespace Passenger.Core.Domain
         {
             if(double.IsNaN(longitude))
             {
-                throw new Exception("Longitude must be a number.");
+                throw new DomainException(ErrorCodes.InvalidLongitude, "Longitude must be a number.");
             }
             if(Longitude == longitude)
             {
@@ -48,7 +48,7 @@ namespace Passenger.Core.Domain
         {
             if(double.IsNaN(latitude))
             {
-                throw new Exception("Latitude must be a number.");
+                throw new DomainException(ErrorCodes.InvalidLatitude, "Latitude must be a number.");
             }
             if(Latitude == latitude)
             {

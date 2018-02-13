@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Passenger.Core.Domain;
 using Passenger.Infrastructure.DTO;
+using Passenger.Infrastructure.Exceptions;
 
 namespace Passenger.Infrastructure.Services
 {
@@ -68,7 +69,7 @@ namespace Passenger.Infrastructure.Services
         {
             if(!availableVehicles.ContainsKey(brand))
             {
-                throw new Exception($"Vehicle brand : '{brand}' is not avaliable.");
+                throw new ServiceException(Exceptions.ErrorCodes.BrandNotAvaliable, $"Vehicle brand : '{brand}' is not avaliable.");
             }
 
             var vehicles = availableVehicles[brand];
@@ -76,7 +77,7 @@ namespace Passenger.Infrastructure.Services
             
             if(vehicle == null)
             {
-                throw new Exception($"Vehicle: '{name}' for brand: '{brand}' is not avaliable.");
+                throw new ServiceException(Exceptions.ErrorCodes.VehicleNotAvaliable, $"Vehicle: '{name}' for brand: '{brand}' is not avaliable.");
             }
 
             return await Task.FromResult(new VehicleDto

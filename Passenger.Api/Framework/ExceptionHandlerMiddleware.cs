@@ -44,7 +44,6 @@ namespace Passenger.Api.Framework
                     errorCode = e.Code;
                     break;
 
-
                 default:
                     statusCode = HttpStatusCode.InternalServerError;
                     break;

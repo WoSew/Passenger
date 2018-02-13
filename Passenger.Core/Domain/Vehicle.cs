@@ -24,7 +24,7 @@ namespace Passenger.Core.Domain
         {
             if(string.IsNullOrWhiteSpace(brand))
             {
-                throw new Exception("Brand is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidName, "Brand is incorrect.");
             }
             if(Brand == brand)
             {
@@ -37,7 +37,7 @@ namespace Passenger.Core.Domain
         {
             if(string.IsNullOrWhiteSpace(name))
             {
-                throw new Exception("Name is incorrect.");
+                throw new DomainException(ErrorCodes.InvalidName, "Name is incorrect.");
             }
             if(Name == name)
             {
@@ -50,7 +50,7 @@ namespace Passenger.Core.Domain
         {
             if(seats < 2)
             {
-                throw new Exception("Quantity of seats is incorrect. The number of seats must by greater than of equal to 2 if You want to be able to use the application.");
+                throw new DomainException(ErrorCodes.InvalidNumberOfSeats, "Quantity of seats is incorrect. The number of seats must by greater than of equal to 2 if You want to be able to use the application.");
             }
             if(Seats == seats)
             {
