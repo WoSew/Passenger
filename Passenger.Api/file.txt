@@ -1,0 +1,121 @@
+2018-02-14 21:17:26.0413|TRACE|Passenger.Infrastructure.Services.DataInitializer|Initializing data...
+2018-02-14 21:17:26.0944|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user1'.
+2018-02-14 21:17:26.1415|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user1'.
+2018-02-14 21:17:26.1516|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user1'.
+2018-02-14 21:17:26.1636|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user1.
+2018-02-14 21:17:26.1636|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user1'.
+2018-02-14 21:17:26.1636|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user2'.
+2018-02-14 21:17:26.1967|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user2'.
+2018-02-14 21:17:26.1967|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user2'.
+2018-02-14 21:17:26.1967|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user2.
+2018-02-14 21:17:26.1967|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user2'.
+2018-02-14 21:17:26.1967|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user3'.
+2018-02-14 21:17:26.2268|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user3'.
+2018-02-14 21:17:26.2268|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user3'.
+2018-02-14 21:17:26.2268|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user3.
+2018-02-14 21:17:26.2268|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user3'.
+2018-02-14 21:17:26.2378|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user4'.
+2018-02-14 21:17:26.2679|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user4'.
+2018-02-14 21:17:26.2679|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user4'.
+2018-02-14 21:17:26.2819|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user4.
+2018-02-14 21:17:26.2879|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user4'.
+2018-02-14 21:17:26.2879|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user5'.
+2018-02-14 21:17:26.3160|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user5'.
+2018-02-14 21:17:26.3160|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user5'.
+2018-02-14 21:17:26.3160|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user5.
+2018-02-14 21:17:26.3160|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user5'.
+2018-02-14 21:17:26.3160|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user6'.
+2018-02-14 21:17:26.3491|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user6'.
+2018-02-14 21:17:26.3491|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user6'.
+2018-02-14 21:17:26.3491|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user6.
+2018-02-14 21:17:26.3491|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user6'.
+2018-02-14 21:17:26.3491|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user7'.
+2018-02-14 21:17:26.3792|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user7'.
+2018-02-14 21:17:26.3792|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user7'.
+2018-02-14 21:17:26.3792|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user7.
+2018-02-14 21:17:26.3792|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user7'.
+2018-02-14 21:17:26.3792|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user8'.
+2018-02-14 21:17:26.4133|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user8'.
+2018-02-14 21:17:26.4133|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user8'.
+2018-02-14 21:17:26.4133|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user8.
+2018-02-14 21:17:26.4133|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user8'.
+2018-02-14 21:17:26.4133|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user9'.
+2018-02-14 21:17:26.4514|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user9'.
+2018-02-14 21:17:26.4514|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user9'.
+2018-02-14 21:17:26.4564|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user9.
+2018-02-14 21:17:26.4564|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user9'.
+2018-02-14 21:17:26.4564|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user10'.
+2018-02-14 21:17:26.4844|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user10'.
+2018-02-14 21:17:26.4844|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user10'.
+2018-02-14 21:17:26.4874|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user10.
+2018-02-14 21:17:26.4874|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user10'.
+2018-02-14 21:17:26.4874|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin1'.
+2018-02-14 21:17:26.5185|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin2'.
+2018-02-14 21:17:26.5446|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin3'.
+2018-02-14 21:17:26.5717|TRACE|Passenger.Infrastructure.Services.DataInitializer|Data was initialized.
+2018-02-14 21:17:26.7211|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting starting
+2018-02-14 21:17:26.8284|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting started
+2018-02-14 21:17:32.9380|ERROR|Microsoft.AspNetCore.Server.Kestrel|UbReadCb
+2018-02-14 21:17:32.9380|ERROR|Microsoft.AspNetCore.Server.Kestrel|UvConnectionCb
+2018-02-14 21:17:32.9431|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting shutdown
+2018-02-14 21:19:36.6657|TRACE|Passenger.Infrastructure.Services.DataInitializer|Initializing data...
+2018-02-14 21:19:36.7088|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user1'.
+2018-02-14 21:19:36.7519|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user1'.
+2018-02-14 21:19:36.7610|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user1'.
+2018-02-14 21:19:36.7710|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user1.
+2018-02-14 21:19:36.7710|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user1'.
+2018-02-14 21:19:36.7710|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user2'.
+2018-02-14 21:19:36.8061|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user2'.
+2018-02-14 21:19:36.8061|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user2'.
+2018-02-14 21:19:36.8061|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user2.
+2018-02-14 21:19:36.8061|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user2'.
+2018-02-14 21:19:36.8061|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user3'.
+2018-02-14 21:19:36.8321|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user3'.
+2018-02-14 21:19:36.8321|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user3'.
+2018-02-14 21:19:36.8321|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user3.
+2018-02-14 21:19:36.8321|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user3'.
+2018-02-14 21:19:36.8321|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user4'.
+2018-02-14 21:19:36.8612|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user4'.
+2018-02-14 21:19:36.8642|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user4'.
+2018-02-14 21:19:36.8642|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user4.
+2018-02-14 21:19:36.8642|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user4'.
+2018-02-14 21:19:36.8642|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user5'.
+2018-02-14 21:19:36.8883|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user5'.
+2018-02-14 21:19:36.8883|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user5'.
+2018-02-14 21:19:36.8883|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user5.
+2018-02-14 21:19:36.8983|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user5'.
+2018-02-14 21:19:36.8983|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user6'.
+2018-02-14 21:19:36.9274|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user6'.
+2018-02-14 21:19:36.9274|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user6'.
+2018-02-14 21:19:36.9274|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user6.
+2018-02-14 21:19:36.9274|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user6'.
+2018-02-14 21:19:36.9274|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user7'.
+2018-02-14 21:19:36.9655|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user7'.
+2018-02-14 21:19:36.9655|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user7'.
+2018-02-14 21:19:36.9655|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user7.
+2018-02-14 21:19:36.9655|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user7'.
+2018-02-14 21:19:36.9655|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user8'.
+2018-02-14 21:19:36.9956|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user8'.
+2018-02-14 21:19:36.9956|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user8'.
+2018-02-14 21:19:36.9956|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user8.
+2018-02-14 21:19:36.9956|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user8'.
+2018-02-14 21:19:36.9956|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user9'.
+2018-02-14 21:19:37.0297|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user9'.
+2018-02-14 21:19:37.0387|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user9'.
+2018-02-14 21:19:37.0387|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user9.
+2018-02-14 21:19:37.0387|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user9'.
+2018-02-14 21:19:37.0387|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user10'.
+2018-02-14 21:19:37.0688|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding user: 'user10'.
+2018-02-14 21:19:37.0688|TRACE|Passenger.Infrastructure.Services.DataInitializer|Setting Vehicle for: 'user10'.
+2018-02-14 21:19:37.0688|TRACE|Passenger.Infrastructure.Services.DataInitializer|Created a new driver for: user10.
+2018-02-14 21:19:37.0688|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding route for: 'user10'.
+2018-02-14 21:19:37.0688|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin1'.
+2018-02-14 21:19:37.1019|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin2'.
+2018-02-14 21:19:37.1269|TRACE|Passenger.Infrastructure.Services.DataInitializer|Adding admin: 'admin3'.
+2018-02-14 21:19:37.1530|TRACE|Passenger.Infrastructure.Services.DataInitializer|Data was initialized.
+2018-02-14 21:19:37.2854|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting starting
+2018-02-14 21:19:37.3967|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting started
+2018-02-14 21:19:43.6440|ERROR|Microsoft.AspNetCore.Server.Kestrel|UbReadCb
+2018-02-14 21:19:43.6440|ERROR|Microsoft.AspNetCore.Server.Kestrel|UvConnectionCb
+2018-02-14 21:19:43.6440|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting shutdown
+2018-02-14 21:22:58.2854|INFO|DriversController|Fetching drivers.

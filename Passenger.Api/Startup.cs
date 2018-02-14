@@ -20,6 +20,8 @@ using Passenger.Infrastructure.Settings;
 using System.Text;
 using Newtonsoft.Json;
 using Passenger.Api.Framework;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace Passenger.Api
 {
@@ -59,6 +61,10 @@ namespace Passenger.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            // loggerFactory.AddNLog();
+            // app.AddNLogWeb();
+            // env.ConfigureNLog("nlog.config");
 
             var jwtSettings = app.ApplicationServices.GetService<JwtSettings>();
                         app.UseJwtBearerAuthentication(new JwtBearerOptions
