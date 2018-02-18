@@ -11,6 +11,8 @@ namespace Passenger.Infrastructure.Repositories
     public class UserRepository : IUserRepository, IMongoRepository
     {
         private readonly IMongoDatabase _database;
+        private IMongoCollection<User> Users => _database.GetCollection<User>("Users");
+        
         public UserRepository(IMongoDatabase database)
         {
             _database = database;
@@ -49,6 +51,5 @@ namespace Passenger.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
-        private IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     }
 }
