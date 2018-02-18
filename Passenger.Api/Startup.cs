@@ -22,6 +22,7 @@ using Newtonsoft.Json;
 using Passenger.Api.Framework;
 using NLog.Extensions.Logging;
 using NLog.Web;
+using Passenger.Infrastructure.Mongo;
 
 namespace Passenger.Api
 {
@@ -78,6 +79,8 @@ namespace Passenger.Api
                 }
             });
 
+            MongoConfigurator.Initialize();
+            
             var generalSettings = app.ApplicationServices.GetService<GeneralSettings>();
             if(generalSettings.SeedData)
             {

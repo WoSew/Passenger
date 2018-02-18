@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
@@ -23,6 +24,13 @@ namespace Passenger.Infrastructure.Services
 
         public async Task SeedAsync()
         {
+
+            var users = await _userService.BrowseAsync();
+            if(users.Any())
+            {
+                return;
+            }
+
             _logger.LogTrace("Initializing data...");   
 
             var tasks = new List<Task>();
@@ -33,18 +41,18 @@ namespace Passenger.Infrastructure.Services
                 var username = $"user{i}";
 
                 _logger.LogTrace($"Adding user: '{username}'.");
-                tasks.Add(_userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user"));
+                await _userService.RegisterAsync(userId, $"user{i}@test.com", username, "secret", "user");
 
                 _logger.LogTrace($"Adding user: '{username}'.");
-                tasks.Add(_driverService.CreateAsync(userId));
+                await _driverService.CreateAsync(userId);
 
                 _logger.LogTrace($"Setting Vehicle for: '{username}'.");
-                tasks.Add(_driverService.SetVehicleAsync(userId, "Mazda", "3"));
+                await _driverService.SetVehicleAsync(userId, "Mazda", "3");
                 _logger.LogTrace($"Created a new driver for: {username}.");
 
                 _logger.LogTrace($"Adding route for: '{username}'.");
-                tasks.Add(_driverRouteService.AddAsync(userId, "Route 1", 5, 5, 6, 6));
-                tasks.Add(_driverRouteService.AddAsync(userId, "Route 2", 605, 221, 735, 000));
+                await _driverRouteService.AddAsync(userId, "Route 1", 5, 5, 6, 6);
+                await _driverRouteService.AddAsync(userId, "Route 2", 605, 221, 735, 000);
             }
 
             for(var i=1; i<=3; i++)

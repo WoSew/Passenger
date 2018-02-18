@@ -119,3 +119,7 @@
 2018-02-14 21:19:43.6440|ERROR|Microsoft.AspNetCore.Server.Kestrel|UvConnectionCb
 2018-02-14 21:19:43.6440|DEBUG|Microsoft.AspNetCore.Hosting.Internal.WebHost|Hosting shutdown
 2018-02-14 21:22:58.2854|INFO|DriversController|Fetching drivers.
+2018-02-18 16:34:50.7690|INFO|DriversController|Fetching drivers.
+2018-02-18 16:42:43.3592|INFO|DriversController|Fetching drivers.
+2018-02-18 17:16:06.2836|INFO|DriversController|Fetching drivers.
+2018-02-18 17:27:46.6766|INFO|DriversController|Fetching drivers.

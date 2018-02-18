@@ -20,6 +20,7 @@ namespace Passenger.Infrastructure.IoC
                    .SingleInstance();
             builder.RegisterModule<CommandModule>();
             builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<MongoModule>();
             builder.RegisterModule<ServicesModule>();
             builder.RegisterModule(new SettingsModule(_configuration));
         }        
