@@ -21,6 +21,7 @@ namespace Passenger.Infrastructure.IoC
             builder.RegisterModule<CommandModule>();
             builder.RegisterModule<RepositoryModule>();
             builder.RegisterModule<MongoModule>();
+            builder.RegisterModule<SqlModule>();
             builder.RegisterModule<ServicesModule>();
             builder.RegisterModule(new SettingsModule(_configuration));
         }        

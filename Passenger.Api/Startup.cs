@@ -23,6 +23,7 @@ using Passenger.Api.Framework;
 using NLog.Extensions.Logging;
 using NLog.Web;
 using Passenger.Infrastructure.Mongo;
+using Passenger.Infrastructure.EntityFramework;
 
 namespace Passenger.Api
 {
@@ -48,6 +49,10 @@ namespace Passenger.Api
             services.AddMemoryCache();
             services.AddMvc()
                 .AddJsonOptions( x => x.SerializerSettings.Formatting = Formatting.Indented); //zmienamy sposob wyswietlania JSON
+
+            services.AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkInMemoryDatabase()
+                .AddDbContext<PassengerContext>();
 
             //Autofac implementation
             var builder = new ContainerBuilder();

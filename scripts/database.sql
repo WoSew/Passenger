@@ -1,6 +1,6 @@
-CREATE DATABASE Pasenger
+CREATE DATABASE Passenger2
 
-USE Passenger
+USE Passenger2
 
 CREATE TABLE Users (
     Id UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -13,3 +13,9 @@ CREATE TABLE Users (
     CreatedAt DATETIME NOT NULL,
     UpdatedAt DATETIME NOT NULL, 
 )
+
+SELECT * FROM Users;
+
+DELETE FROM Users;
+
+DROP DATABASE Passenger

@@ -62,7 +62,7 @@ namespace Passenger.Infrastructure.Services
 
                  _logger.LogTrace($"Adding admin: '{username}'.");
 
-                tasks.Add(_userService.RegisterAsync(userId, $"admin{i}@test.com", username, "secret", "admin"));
+                await _userService.RegisterAsync(userId, $"admin{i}@test.com", username, "secret", "admin");
             }
 
             await Task.WhenAll(tasks);
